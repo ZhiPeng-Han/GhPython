@@ -1,3 +1,6 @@
+__author__ = "billpower"
+__version__ = "2019.12.25"
+
 import rhinoscriptsyntax as rs
 
 plane = rs.WorldXYPlane()   #获取xy以原点为中心的参考平面
