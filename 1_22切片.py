@@ -1,7 +1,7 @@
 __author__ = "billpower"
 __version__ = "2019.12.25"
 
-import rhinoscriptsyntax as rs
+#import rhinoscriptsyntax as rs
 
 number = list(range(10))
 print(number)

@@ -4,33 +4,33 @@ __version__ = "2019.12.25"
 
 import rhinoscriptsyntax as rs
 
-plane = rs.WorldXYPlane()   #»ñÈ¡xyÒÔÔ­µãÎªÖÐÐÄµÄ²Î¿¼Æ½Ãæ
+plane = rs.WorldXYPlane()   #ï¿½ï¿½È¡xyï¿½ï¿½Ô­ï¿½ï¿½Îªï¿½ï¿½ï¿½ÄµÄ²Î¿ï¿½Æ½ï¿½ï¿½
 rectangle = rs.AddRectangle(plane,40,40)
 
-dpointsCoordinate = rs.DivideCurve(rectangle,10) #µÈ·Ö10¾ØÐÎ
-dpoints = rs.AddPoints(dpointsCoordinate)   #Ôö¼ÓµÈ·Öµã
+dpointsCoordinate = rs.DivideCurve(rectangle,10) #ï¿½È·ï¿½10ï¿½ï¿½ï¿½ï¿½
+dpoints = rs.AddPoints(dpointsCoordinate)   #ï¿½ï¿½ï¿½ÓµÈ·Öµï¿½
 print(dpoints)
 
-format = "point_%s" #¸ñÊ½»¯×Ö·û´®µÄÄ£Ê½
+format = "point_%s" #ï¿½ï¿½Ê½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½Ä£Ê½
 dpointe = []
 i = 0
 for i in  range(len(dpoints)):
-    dpointe.append(format % str(i)) #¸ñÊ½»¯×Ö·û´®²¢ÖðÒ»×·¼Óµ½ÁÐ±í
+    dpointe.append(format % str(i)) #ï¿½ï¿½Ê½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»×·ï¿½Óµï¿½ï¿½Ð±ï¿½
 print(dpointe)
 
-dpointx = list(range(len(dpoints))) #½¨Á¢µÈ·ÖµãË÷Òý
+dpointx = list(range(len(dpoints))) #ï¿½ï¿½ï¿½ï¿½ï¿½È·Öµï¿½ï¿½ï¿½ï¿½ï¿½
 print(dpointx)
 
-#ÇÐÆ¬Ë÷Òý£¬½¨Çò
+#ï¿½ï¿½Æ¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 selepoints = dpoints[x:y]
 cubes = []
 print(selepoints)
 for i in range(len(selepoints)):
-    sphere = rs.AddSphere(selepoints[i],3)  #ÌáÈ¡[y](Ô²ÐÄ£¬°ë¾¶)
-    cube = rs.AddBox(rs.BoundingBox(sphere))    #£¨ÎïÌå£¬plane£©
+    sphere = rs.AddSphere(selepoints[i],3)  #ï¿½ï¿½È¡[y](Ô²ï¿½Ä£ï¿½ï¿½ë¾¶)
+    cube = rs.AddBox(rs.BoundingBox(sphere))    #ï¿½ï¿½ï¿½ï¿½ï¿½å£¬planeï¿½ï¿½
 #    id = rs.GetObject(sphere)
 #    if id: rs.DeleteObject()
-    xform = rs.XformTranslation([i,i*5,i*5])    #x·½ÏòµÄÒÆ¶¯ÃüÁî
-    trancube = rs.TransformObject(cube,xform)   #ÒÆ¶¯ÃüÁî
+    xform = rs.XformTranslation([i,i*5,i*5])    #xï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½ï¿½
+    trancube = rs.TransformObject(cube,xform)   #ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½ï¿½
     cubes.append(trancube)
 print(cubes)
