@@ -49,27 +49,36 @@ rs.AddPoints(Bdivipoints)
 rs.AddPoints(cendivipoints)
 
 #检查变量
-patternA = list(range(0,len(Adivipoints),2))
+#patternA = list(range(0,len(Adivipoints),2))
 patternB = list(range(1,len(Adivipoints)+1,2))
-print(patternA)
+#print(patternA)
 print(patternB)
 
 #建立列表
-lineAps = []
-lineBps = []
-lineCps = []
+#lineAps = []
+#lineBps = []
+#lineCps = []
 
 #循环语句，同时分别提取保留点
-for i in patternA:
-    lineAps.append(Adivipoints[i])
-    lineBps.append(Bdivipoints[i])
-    lineCps.append(cendivipoints[i])
+#for i in patternA:
+#    lineAps.append(Adivipoints[i])
+#    lineBps.append(Bdivipoints[i])
+#    lineCps.append(cendivipoints[i-1])
+
+#用分片方式提取项值，避免循环，增加可读性
+la = Adivipoints[::2]
+lb = Bdivipoints[::2]
+lc = cendivipoints[1::2]
+
+#修整列表使得结构合理完整
+lc.insert(0,cendivipoints[0])
+lc.append(cendivipoints[-1])
 
 #复制第三条结构线保留等分点，错开插入中心线列表
-lineCpsc = lineCps[:]   
+lcc = lc[:]   
 for i in range(len(patternB)):
-    lineCps.insert(patternB[i],lineAps[i])
-    lineCpsc.insert(patternB[i],lineBps[i])
+    lc.insert(patternB[i],la[i])
+    lcc.insert(patternB[i],lb[i])
 
-pla = rs.AddPolyline(lineCps)
-plb = rs.AddPolyline(lineCpsc)
+pla = rs.AddPolyline(lc)
+plb = rs.AddPolyline(lcc)
