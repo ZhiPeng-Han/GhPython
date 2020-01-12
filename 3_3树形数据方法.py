@@ -111,3 +111,19 @@ SMP = TreeData      #将最初的数据复制
 
 SMP.SimplifyPaths()     #简化路径分支，去除0
 print(SMP)
+
+#DataTree的基本属性
+branchcount = DF.BranchCount    #统计所有路径分支的数量
+print(branchcount)
+
+datacount = DF.DataCount    #统计各个路径分支下的所有数据数量
+print(datacount)
+
+branches = DF.Branches      #将各个路径下的项值形成列表
+print(branches)
+
+pathslst = DF.Paths      #所有路径分支放置于一个列表下
+print(pathslst)
+
+dec = DF.TopologyDescription    #树形数据结构
+pritn(dec)
