@@ -80,3 +80,34 @@ print(DF)
 DF = DataTree[Rhino.Geometry.GeometryBase](DC)  #复制
 DF.Graft(GH_Path(9))    #上升{9}下的数据
 print(DF)
+
+#其他方法
+addpoints = Glst[2][3]
+DF.Insert(addpoint,GH_Path(9,0),2)
+print(DF)
+
+returnv = DF.ItermExists(GH_Path(9,0),2)    #判断数据是否存在
+print(returnv)
+
+returnv = DF.PathExists(GH_Path(9,0),3)
+print(returnv)
+
+returnBE = DF.PathExists(GH_Path(9,0))
+print(returnBE)
+
+returnP = DF.Path(5)
+print(returnP)
+
+DF.RemovePath(GH_Path(9,3))     #移除指定的路径以及其下项值
+print(DF)
+
+DF.MergeTree(DC)    #合并两个树形数据
+print(DC)
+
+DF.RenumberPaths()  #将所有路径从0开始命名
+print(DF)
+
+SMP = TreeData      #将最初的数据复制
+
+SMP.SimplifyPaths()     #简化路径分支，去除0
+print(SMP)
