@@ -30,9 +30,10 @@ f.seek(6)
 f.write('Grasshopper!')
 f.close()
 
-F=open('D:\data22.txt','r') #读模式
-fr=F.read(15)
-F.close()
-print(fr)
-
-
+f = open('D:\data22.txt')
+f.read()
+f.close()
+f = open('D:\data22.txt')
+f.read(2)
+f.read(2)   #逐一提取指定数量的字符
+f.tell()    #使用f.tell（）的方法获知当前以读取完成的位置
