@@ -20,12 +20,14 @@ mll = ml.pop()  #移除举高列表最后一个值
 mllm = mll+(2*ps-0.032)
 ml.append(mllm)
 mlo = mllm/h   #计算包含平水高的举高的举架值
+print(mllm)
 
 Mu = []
 M = []
 for q in range(len(ml)):
     Mu.append(ml[q])
     M.append(sum(Mu))
+print(M)
 
 MH = lst
 MH[0],MH[-1] = [st,mlo]
