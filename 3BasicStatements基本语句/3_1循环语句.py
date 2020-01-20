@@ -16,3 +16,18 @@ for key in d:
 
 for key,value in d.items():
     print(key,value)
+
+
+print('****************************')
+#while循环
+x = 1
+while x <= 100:
+    print(x)
+    x += 10
+    if x > 60:break #终止循环
+
+x = 1
+while True: #直接开始循环，再确定停止条件
+    print(x)
+    x += 2
+    if x>10:break
