@@ -5,17 +5,16 @@ __version__ = "2020.01.26"
 
 import rhinoscriptsyntax as rs
 
-#分解mesh，获取点坐标列表
-mesh = mesh
-meshes = rs.ExplodeMeshes(mesh)  #分解Mesh为各个单元
+#分解mesh，获取点坐标列表，用于生成面
+meshes = meshes
+#meshes = rs.ExplodeMeshes(mesh)  #该函数在新版本中无效
 lp = []
-print(Locationpoint)
-
+#print(Locationpoint)
 for i in Locationpoint: #循环遍历点，获取点坐标列表
     lp.append(rs.PointCoordinates(i))
-print(lp)
+#print(lp)
 
-#
+#核心展平程序
 xymeshes = []
 for i in range(len(meshes)):
     if i == 0:
@@ -23,10 +22,12 @@ for i in range(len(meshes)):
         xymesh0 = rs.OrientObject(meshes[i],mesh0point,lp,1)    
         #将第一个单元面放置在二维平面上，初始参考点为第一个单元面的顶点，目标参考点为输入的点对象（至少三个点，并转化为点坐标列表
         xymeshes.append(xymesh0)    #将第一个展平面加入列表
+        #print(xymeshes)
     else:
         vertices2 = rs.MeshVertices(meshes[i])  #获取索引值为i时，单元面所有顶点
         vertices1 = rs.MeshVertices(meshes[i-1])    #i-1时，单元面的所有顶点
         ver = [m for m in vertices1 for n in vertices2 if m==n] #遍历两mesh中的点，提取重合点ab
+        #print(vertices2)
         a = ver[0]
         b = ver[1]
         indexa = vertices1.index(a) #提取ab点在i-1单元中的索引值
@@ -43,6 +44,7 @@ for i in range(len(meshes)):
     vertices2=[]
     vertices1=[]
     ver = []
+print(xymeshes)
 
 
 
