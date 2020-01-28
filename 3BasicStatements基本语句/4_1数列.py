@@ -12,3 +12,8 @@ while True:
     series.append(start)
 
 print(series)
+
+#已有列表lst，索引范围切片
+if start >= end:
+    end = start+1
+a = lst[start:end:step]
